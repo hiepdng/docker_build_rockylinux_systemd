@@ -1,0 +1,66 @@
+# This is for Rocky Linux 9 with systemd installed
+
+# and many networking utilities installed:
+# NetworkManager: Primary daemon to configure and control network connections.
+# NetworkManager-tui: Text user interface (nmtui) for terminal-based configuration.
+# NetworkManager-wifi: Extension needed for managing wireless connections.
+# iproute: Core utilities containing the ip command (replacing legacy ifconfig).
+# net-tools: Legacy tools providing ifconfig, netstat, and route.
+# nmap: Tool for network discovery and security auditing
+# Ncat: Tool that reads and writes data across networks from the command line.
+# curl: Command line to transfer data.
+# wget: Command-line utility for non-interactive downloading of files from the web.
+# iputils: Standard diagnostics containing ping, tracepath, and clockdiff.
+# traceroute: Tracks the path packets take across an IP network.
+# bind-utils: DNS lookup utilities including dig, nslookup, and host.
+# tcpdump: Command-line packet analyzer to capture and audit network traffic.
+# ethtool: Utility to query and control network device driver and hardware settings. 
+# firewalld: Default dynamic firewall daemon daemon for Rocky Linux.
+# nftables: Successor to iptables, providing packet classification and filtering.
+# iptables: Legacy packet filtering framework. ￼
+# nfs-utils: Client and server utilities for Network File System (NFS) storage.
+# cifs-utils: Tools for mounting execution of SMB/CIFS shares (Windows networking).
+# wpa_supplicant: WPA/WPA2/WPA3 encryption support for Wi-Fi networks. 
+
+FROM rockylinux:9
+ENV container=docker
+
+# Install systemd for rockylinux:minimal and clean unnecessary targets
+RUN dnf -y install systemd; dnf clean all; \
+(cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
+rm -f /lib/systemd/system/multi-user.target.wants/*;\
+rm -f /etc/systemd/system/*.wants/*;\
+rm -f /lib/systemd/system/local-fs.target.wants/*; \
+rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
+rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
+rm -f /lib/systemd/system/basic.target.wants/*;\
+rm -f /lib/systemd/system/anaconda.target.wants/*;
+
+RUN << EOF
+dnf -y update && dnf clean all
+dnf -y install NetworkManager
+dnf -y install NetworkManager-tui
+dnf -y install NetworkManager-wifi
+dnf -y install iputils
+dnf -y install bind-utils
+dnf -y install iproute
+dnf -y install curl-minimal
+dnf -y install wget
+dnf -y install net-tools
+dnf -y install nmap-ncat
+dnf -y install nmap
+dnf -y install tcpdump
+dnf -y install ethtool
+dnf -y install firewalld
+dnf -y install nftables
+dnf -y install iptables
+dnf -y install nfs-utils
+dnf -y install cifs-utils
+dnf -y install wpa_supplicant
+dnf clean packages
+EOF
+
+VOLUME [ "/sys/fs/cgroup" ]
+CMD ["/usr/sbin/init"]
+
+ 
