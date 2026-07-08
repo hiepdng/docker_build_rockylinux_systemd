@@ -8,8 +8,10 @@ or
 ### Pull image from dockerhub
 `$ docker pull hiepdng/rockylinux_systemd:latest`
 
+
 ### Run the Container
 `$ docker run -d --name my-rocky-container --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro rockylinux_systemd`
+
 
 ### Basic docker commands:
 ```
