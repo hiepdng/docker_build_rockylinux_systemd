@@ -49,7 +49,7 @@ $ docker run -d \
 
 - **Dockerfile_Development_Tools** - Rocky Linux with Development Tools installed\
 ```
-$ docker build -f Dockerfile_Developement_Tools -t rockylinux_developementtools`
+$ docker build -f Dockerfile_Developement_Tools -t rockylinux_developementtools
 $ docker run -d \
   --cgroupns=private \
   --privileged \
@@ -59,7 +59,7 @@ $ docker run -d \
 
 - **Dockerfile_System_Tools** - Rocky Linux with System Tools installed\
 ```
-$ docker build -f Dockerfile_System_Tools -t rockylinux_systemtools`
+$ docker build -f Dockerfile_System_Tools -t rockylinux_systemtools
 $ docker run -d \
   --cgroupns=private \
   --privileged \
