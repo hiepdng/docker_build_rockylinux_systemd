@@ -1,7 +1,7 @@
 # Building Docker image: Rocky Linux 9 with systemd
 
 ### Build your own image
-`$ cd /the_directory_containing_Dockerfile/`
+`$ cd /the_directory_containing_Dockerfile/`\
 `$ docker build -t rockylinux_systemd .`
 
 or
