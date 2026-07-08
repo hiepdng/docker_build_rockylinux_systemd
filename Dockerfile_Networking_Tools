@@ -1,5 +1,5 @@
 # This is for Rocky Linux 9 with systemd installed
-# and many networking utilities installed:
+# and many networking tools installed:
 
 # NetworkManager: Primary daemon to configure and control network connections.
 # NetworkManager-tui: Text user interface (nmtui) for terminal-based configuration.
