@@ -1,3 +1,5 @@
+# This is for Rocky Linux 9 with systemd installed
+
 FROM rockylinux:9
 ENV container=docker
 
