@@ -10,16 +10,11 @@ or
 
 
 ### Run the Container
-`$ docker run -d --name my-rocky-container --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro rockylinux_systemd`
-
 ```
 $ docker run -d \
-  --name rockylinux_systemd \
-  --tmpfs /run \
-  --tmpfs /run/lock \
   --cgroupns=private \
   --privileged \
-  -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+  -v /sys/fs/cgroup:/sys/fs/cgroup:rw \
   rockylinux_systemd
   ```
 
