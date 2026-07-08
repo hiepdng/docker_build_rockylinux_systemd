@@ -2,9 +2,10 @@
 
 ### Build your own image
 `$ docker build -t rockylinux:9`
+
 or
 
-### pull image from dockerhub
+### Pull image from dockerhub
 `$ docker pull hiepdng/rockylinux_systemd:latest`
 
 ### Run the Container
