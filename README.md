@@ -2,6 +2,7 @@
 
 ### Build your own image
 `$ cd /the_directory_containing_Dockerfile/`\
+
 `$ docker build -t rockylinux_systemd .`
 
 or
