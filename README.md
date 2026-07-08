@@ -37,11 +37,14 @@ $ docker exec -it <containerID> bash – Opens an interactive command-line termi
 ### Build Rocky Linux 9 with systemd and pre-installed utilies:
 You can build images with provided Dockerfiles:
 
-- **Dockerfile_for_networking** - Rocky Linux with networking utilities installed\
-`$ docker build -f Dockerfile_for_networking -t rockylinux_networking`
+- **Dockerfile_Networking_Tools** - Rocky Linux with networking Tools installed\
+`$ docker build -f Dockerfile_Networking_Tools -t rockylinux_networkingtools`
 
-- **Dockerfile_for_developer** - Rocky Linux with Development tools installed\
-`$ docker build -f Dockerfile_for_developer -t rockylinux_developer`
+- **Dockerfile_Development_Tools** - Rocky Linux with Development Tools installed\
+`$ docker build -f Dockerfile_Developement_Tools -t rockylinux_developementtools`
+
+- **Dockerfile_System_Tools** - Rocky Linux with System Tools installed\
+`$ docker build -f Dockerfile_System_Tools -t rockylinux_systemtools`
 
 
 
