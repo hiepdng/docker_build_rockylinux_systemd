@@ -18,11 +18,11 @@ docker run -d --name my-rocky-container --privileged -v /sys/fs/cgroup:/sys/fs/c
 ```
 
 ### Basic docker commands
-- > docker pull <dockerhub-image>
-- > docker image ls
-- > docker run
-- > docker ps
-- > docker ps -a
-- > docker 
+- ```docker pull <dockerhub-image>```
+- ```docker image ls```
+- ```docker run```
+- ```docker ps```
+- ```docker ps -a```
+- ```docker``
 
 
