@@ -1,0 +1,71 @@
+# This is for Rocky Linux 9 with systemd installed
+# and System Tools installed:
+
+#Group: System Tools
+# Description: This group is a collection of various tools for the system, such as the client for connecting to SMB shares and tools to monitor network traffic.
+# Default Packages:
+#   NetworkManager-libreswan
+#   chrony
+#   cifs-utils
+#   libreswan
+#   nmap
+#   openldap-clients
+#   samba-client
+#   setserial
+#   tigervnc
+#   tmux
+#   zsh
+# Optional Packages:
+#   PackageKit-command-not-found
+#   aide
+#   autofs
+#   bacula-client
+#   chrpath
+#   convmv
+#   createrepo_c
+#   environment-modules
+#   freerdp
+#   fuse
+#   gpm
+#   hardlink
+#   initscripts
+#   initscripts-service
+#   iotop
+#   lzop
+#   mc
+#   mrtg
+#   mtx
+#   net-snmp-utils
+#   netconsole-service
+#   oddjob
+#   oddjob-mkhomedir
+#   pmdk-convert
+#   readonly-root
+#   rear
+#   speech-dispatcher
+#   speech-dispatcher-espeak-ng
+#   sysstat
+#   wireshark
+
+FROM rockylinux:9
+ENV container=docker
+
+# Install systemd for rockylinux:minimal and clean unnecessary targets
+RUN dnf -y install systemd; dnf clean all; \
+(cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
+rm -f /lib/systemd/system/multi-user.target.wants/*;\
+rm -f /etc/systemd/system/*.wants/*;\
+rm -f /lib/systemd/system/local-fs.target.wants/*; \
+rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
+rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
+rm -f /lib/systemd/system/basic.target.wants/*;\
+rm -f /lib/systemd/system/anaconda.target.wants/*;
+
+RUN << EOF
+dnf -y update && dnf clean all
+dnf -y groupinstall "System Tools"
+dnf clean packages
+EOF
+
+VOLUME [ "/sys/fs/cgroup" ]
+CMD ["/usr/sbin/init"]
