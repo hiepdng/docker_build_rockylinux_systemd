@@ -17,12 +17,15 @@ docker pull hiepdng/rockylinux_systemd:latest
 docker run -d --name my-rocky-container --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro rockylinux_systemd
 ```
 
-### Basic docker commands
-- ```docker pull <dockerhub-image>```
-- ```docker image ls```
-- ```docker run```
-- ```docker ps```
-- ```docker ps -a```
-- ```docker``
+### Basic docker commands:
+```
+$ docker pull <image_name>       – Pull an image from dockerhub
+$ docker image ls                – List all locally stored Docker images on your host system
+$ docker run -it -d <image_name> – Create & start a new Docker container from animage and runs it in the background
+$ docker ps                      – List all currently running Docker containers on your system
+$ docker ps -a                   – lists all Docker containers on your system, regardless of their current status. 
+$ docker stop <contaierID>       – Gracefully shuts down a running Docker container
+$ docker start <contaierID>      – Resumes and boots up stopped Docker container
+```
 
 
