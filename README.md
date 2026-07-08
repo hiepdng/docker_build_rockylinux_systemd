@@ -1,5 +1,4 @@
-# docker_build_rockylinux_systemd
-Building Docker image: Rocky Linux 9 with systemd
+# Building Docker image: Rocky Linux 9 with systemd
 
 ### Build your own image
 ```
@@ -19,11 +18,11 @@ docker run -d --name my-rocky-container --privileged -v /sys/fs/cgroup:/sys/fs/c
 ```
 
 ### Basic docker commands
-> docker pull <dockerhub-image>
-> docker image ls
-> docker run
-> docker ps
-> docker ps -a
-> 
+- > docker pull <dockerhub-image>
+- > docker image ls
+- > docker run
+- > docker ps
+- > docker ps -a
+- > docker 
 
 
