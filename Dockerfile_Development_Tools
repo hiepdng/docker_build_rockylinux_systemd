@@ -60,7 +60,7 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 
 RUN << EOF
 dnf -y update && dnf clean all
-dnf -y groupinstall "Development Tools"
+dnf -y groupinstall "Development Tools" --with-optional
 dnf clean packages
 EOF
 
