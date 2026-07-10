@@ -17,7 +17,7 @@ $ docker run -d \
   --cgroupns=private \
   --privileged \
   -v /sys/fs/cgroup:/sys/fs/cgroup:rw \
-  rockylinux_systemd /sbin/init
+  rockylinux_systemd
   ```
 
 ### Basic docker commands:
