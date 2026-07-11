@@ -1,14 +1,7 @@
 # Building Docker image: Rocky Linux 9 with systemd
 
-### Build your own image
-`$ cd /the_directory_containing_Dockerfile/`\
-
+### Build your own image  
 `$ docker build -t rockylinux_systemd .`
-
-or
-
-### Pull image from dockerhub
-`$ docker pull hiepdng/rockylinux_systemd:latest`
 
 
 ### Run the Container
@@ -41,7 +34,7 @@ You can build images with provided Dockerfile files:
 
 - **Dockerfile_Networking_Tools** - Rocky Linux with networking Tools installed\
 ```
-$ docker build -f Dockerfile_Networking_Tools -t rockylinux_networkingtools
+$ docker build -f Dockerfile_Networking_Tools -t rockylinux_networkingtools .
 $ docker run -d \
   --cgroupns=private \
   --privileged \
@@ -51,7 +44,7 @@ $ docker run -d \
 
 - **Dockerfile_Development_Tools** - Rocky Linux with Development Tools installed\
 ```
-$ docker build -f Dockerfile_Developement_Tools -t rockylinux_developementtools
+$ docker build -f Dockerfile_Developement_Tools -t rockylinux_developementtools .
 $ docker run -d \
   --cgroupns=private \
   --privileged \
@@ -61,7 +54,7 @@ $ docker run -d \
 
 - **Dockerfile_System_Tools** - Rocky Linux with System Tools installed\
 ```
-$ docker build -f Dockerfile_System_Tools -t rockylinux_systemtools
+$ docker build -f Dockerfile_System_Tools -t rockylinux_systemtools .
 $ docker run -d \
   --cgroupns=private \
   --privileged \
